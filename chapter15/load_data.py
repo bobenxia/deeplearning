@@ -1,6 +1,6 @@
 from keras.datasets import cifar10
 from matplotlib import pyplot as plt
-from scipy.misc import toimage
+from PIL import Image
 import numpy as np
 
 # 导入数据
@@ -8,7 +8,7 @@ import numpy as np
 
 for i in range(0, 9):
     plt.subplot(331 + i)
-    plt.imshow(toimage(X_train[i]))
+    plt.imshow(Image.fromarray(X_train[i]))
 
 # 显示图片
 plt.show()
