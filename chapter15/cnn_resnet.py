@@ -7,7 +7,7 @@ import cv2
 import time
 from tensorflow.keras import models, optimizers, regularizers
 from tensorflow.keras.layers import Conv2D, AveragePooling2D, BatchNormalization, Flatten, Dense, Input, add, Activation
-os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+os.environ['CUDA_VISIBLE_DEVICES'] = '0,1'
 
 # network config
 stack_n = 18  # layers = stack_n * 6 + 2
@@ -192,7 +192,7 @@ def test(model, images, labels):
 if __name__ == '__main__':
     # gpu config
     physical_devices = tf.config.experimental.list_physical_devices('GPU')
-    tf.config.experimental.set_memory_growth(device=physical_devices[0], enable=True)
+    tf.config.experimental.set_memory_growth(device=physical_devices[1], enable=True)
 
     # load data
     (train_images, train_labels, test_images, test_labels) = load_CIFAR('/home/micl/xia/deeplearning/cifar-10-batches-py/')
